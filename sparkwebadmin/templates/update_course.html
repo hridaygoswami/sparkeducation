@@ -1,0 +1,67 @@
+{% extends 'header1.html'%}
+{% block content %}
+
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Course</h1>
+
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-10">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Course</h5>
+
+              <!-- General Form Elements -->
+              <form method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
+                    <div class="col-sm-10">
+                      <input class="form-control" name="img" type="file" id="formFile" value="{{course1.img}}">
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                      <!-- <input type="date" name="date" class="form-control" value="{{deal.date}}"> -->
+                      <input type="text" id="dateInput" name="name"  required value="{{course1.name}}">
+
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Short Description</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="short" class="form-control" value="{{course1.short_description}}">
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                      <input type="name" name="description" class="form-control" value="{{course1.description}}">
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-10">
+                      <button type="submit" name="submit" class="btn btn-primary">Submit Form</button>
+                    </div>
+                  </div>
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+ 
+
+  {% endblock %}

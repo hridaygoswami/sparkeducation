@@ -1,0 +1,62 @@
+{% extends 'base.html'%} {%block content%}
+<!--Breadcrumb Banner Area Start-->
+<div class="breadcrumb-banner-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="breadcrumb-text">
+          <h1 class="text-center">Our Courses</h1>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+
+<!--Course Area Start-->
+<div class="course-area bg-white section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title-wrapper">
+          <div class="section-title">
+            <h3>POPULAR COURSES</h3>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% for variable in course %}
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="single-item">
+          <div class="single-item-image overlay-effect">
+            <a href="../coursedetails/{{variable.id}}"
+              ><img src="../../media/{{variable.img}}" alt=""
+            /></a>
+          </div>
+          <div class="single-item-text">
+            <h4>
+              <a href="../coursedetails/{{variable.id}}">{{variable.name}}</a>
+            </h4>
+            <p>{{variable.short_description}}</p>
+            <div class="single-item-content">
+              <div class="single-item-rating">
+                <i class="zmdi zmdi-star"></i>
+                <i class="zmdi zmdi-star"></i>
+                <i class="zmdi zmdi-star"></i>
+                <i class="zmdi zmdi-star"></i>
+                <i class="zmdi zmdi-star-half"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!--End of Course Area-->
+
+{%endblock%}

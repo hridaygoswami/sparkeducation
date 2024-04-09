@@ -1,0 +1,80 @@
+{% extends 'base1.html'%}
+{%block content%}
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <!--Loading Area Start-->
+        <div class="loading">
+    		<div class="text-center middle">
+    			<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    		</div>
+    	</div>
+        <!--Loading Area End-->
+        <!--Main Wrapper Start-->
+        <div class="as-mainwrapper">
+            <!--Bg White Start-->
+            <div class="bg-white">
+ 
+                <!--End of Header Area-->
+                <!--Breadcrumb Banner Area Start-->
+                <div class="breadcrumb-banner-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="breadcrumb-text">
+                                    <h1 class="text-center">COURSES DETAILS</h1>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End of Breadcrumb Banner Area-->
+                <!--Course Area Start-->
+                <div class="course-details-area section-padding">
+                    <div class="container">
+                        <div class="row">
+                           <div class="col-lg-9 col--12">
+                                <div class="course-details-right-sidebar">
+                                    <div class="events-details-img1 img-full">
+                                        <h2>{{course.name}}</h2>
+                                        <img src="../../media/{{course.img}}" alt="">
+                                    </div>
+                                    <div class="single-item-content">
+                                      
+                                       <div class="single-item-rating">
+                                           <i class="zmdi zmdi-star"></i>
+                                           <i class="zmdi zmdi-star"></i>
+                                           <i class="zmdi zmdi-star"></i>
+                                           <i class="zmdi zmdi-star"></i>
+                                           <i class="zmdi zmdi-star-half"></i>
+                                       </div>
+                                    </div>
+                                    <div class="course-duration mb-30">
+                                        
+                                    </div>
+                                    <div class="about-lectures">
+                                        <h3>Course Description</h3>
+                                        <p>{{course.description}}</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="sidebar-widget">
+                                   
+                                   
+                                    
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Course Area End-->
+                {%endblock%}
+                

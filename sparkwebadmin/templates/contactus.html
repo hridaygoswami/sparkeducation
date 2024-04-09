@@ -1,0 +1,70 @@
+{% extends 'header1.html'%}
+{% block content %}
+
+
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Contact Us</h1>
+
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-10">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Contact </h5>
+
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Table with hoverable rows</h5>
+
+              <!-- Table with hoverable rows -->
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Number</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Update</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for variable in contact3 %}
+                  <tr >
+                  <th scope="row">1</th>
+                  <td>{{variable.name}}</td>
+                  <td>{{variable.email}}</td>
+                  <td>{{variable.number}}</td>
+                  <td>{{variable.category}}</td>
+                  <td>{{variable.message}}</td>
+                  <!-- <td>2016-05-25</td> -->
+                  <td><a href="/sparkwebadmin/deleterow3/{{variable.id}}/" class="btn btn-danger m-2">Delete</a></td>
+                  <td><a href="/sparkwebadmin/contactup/{{variable.id}}/" class="btn btn-danger m-2">Update</a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Table with hoverable rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+ 
+
+  {% endblock %}

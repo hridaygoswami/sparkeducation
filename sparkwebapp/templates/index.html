@@ -1,0 +1,111 @@
+{% extends 'base.html'%} {%block content%}
+<div class="slider-area">
+  <div class="hero-slider owl-carousel">
+    <!--Single Slider Start-->
+    {% for variable in slide %}
+    <div
+      class="single-slider"
+      style="background-image: url(../../media/{{variable.img}})"
+    >
+      <div class="hero-slider-content">
+        <h1>{{variable.heading}}</h1>
+        <p>{{variable.title}}</p>
+        
+      </div>
+    </div>
+    {% endfor %}
+    <!--Single Slider End-->
+  </div>
+</div>
+<!--Slider Area End-->
+<!--About Area Start-->
+<div class="about-area mt-95">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="about-container">
+          <h3> {{about.heading}}</h3>
+          <p>{{about.content}}</p>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <!--About Image Area Start-->
+        <div class="about-image-area img-full">
+          <img src="../media/{{about.img1}}" alt="" />
+        </div>
+        <!--About Image Area End-->
+      </div>
+    </div>
+  </div>
+</div>
+<!--End of About Area-->
+<!--Course Area Start-->
+
+<div class="course-area section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title-wrapper">
+          <div class="section-title">
+            <h3>POPULAR COURSES</h3>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% for variable in course %}
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="single-item">
+          <div class="single-item-image overlay-effect">
+            <a href="../coursedetails/{{variable.id}}"
+              ><img src="../../media/{{variable.img}}" alt=""
+            /></a>
+          </div>
+          <div class="single-item-text">
+            <h4><a href="../coursedetails/{{variable.id}}">{{variable.name}}</a></h4>
+            <p>{{variable.short_description}}</p>
+            <div class="single-item-content">
+              <div class="single-item-rating">
+                <i class="zmdi zmdi-star"></i>
+                <i class="zmdi zmdi-star"></i>
+                <i class="zmdi zmdi-star"></i>
+                <i class="zmdi zmdi-star"></i>
+                <i class="zmdi zmdi-star-half"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+    </div>
+  </div>
+</div>
+<!--End of Course Area-->
+
+<div class="testimonial-area">
+  <div class="container">
+    <div class="row">
+      <div class="testimonial-slider owl-carousel">
+        {% for variable in reviews %}
+        <div class="col-12">
+          <!--Single Testimonial Area Start-->
+          <div class="single-testimonial-area">
+            <div class="testimonial-content">
+              <p class="author-desc">
+                {{variable.reviews}}
+              </p>
+              <p class="testimonial-author">
+                {{variable.name}},{{variable.designation}}
+              </p>
+            </div>
+          </div>
+          <!--Single Testimonial Area End-->
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}
