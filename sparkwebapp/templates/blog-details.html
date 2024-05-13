@@ -1,0 +1,51 @@
+{% extends 'base1.html'%}
+{%block content%}
+<!--Breadcrumb Banner Area Start-->
+<div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Blog Details</h1>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+<!--Blog Area Start--> 
+<div class="blog-area pt-100 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 blog-post-item">
+                <div class="blog-wrapper blog-details">
+                    <div class="blog-img img-full">
+                        <img src="../../media/{{blog.img1}}" alt="">
+                    </div>
+                    <div class="blog-content">
+                        
+                        <h3>{{blog.heading}}</h3>
+                        <p>{{blog.content}}</p>
+                        
+                    </div>
+                </div>
+                <div class="blog-author mt-60">
+                    <h4 class="small-title">Author</h4>
+                    <div class="blog-author-box">
+                        
+                        <div class="blog-author-content">
+                            <h6>{{blog.authorname}}</h6>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-12">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!--Blog Area End--> 
+{%endblock%}

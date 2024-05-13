@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{%block content%}
+<!--Breadcrumb Banner Area Start-->
+<div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Blogs</h1>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+<!--Latest News Area Start--> 
+<div class="latest-area section-padding bg-white blog-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title-wrapper">
+                    <div class="section-title">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for variable in blogs %}
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="single-latest-item">
+                    <div class="single-latest-image">
+                        <a href="/spark/blogdetails/{{variable.id}}"><img src="../media/{{variable.img1}}" alt=""></a>
+                    </div>
+                    <div class="single-latest-text">
+                        <h3><a href="/spark/blogdetails/{{variable.id}}">{{variable.heading}}</a></h3>
+                           
+                       <p>{{variable.sub_content}}</p>
+                       <a href="/spark/blogdetails/{{variable.id}}" class="button-default">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>
+<!--End of Latest News Area--> 
+{%endblock%}

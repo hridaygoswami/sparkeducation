@@ -23,8 +23,11 @@ from  django.conf import settings
 urlpatterns = [
     path('index/', index),
     path('about/', about1),
+    path('gallery/',gallery),
+    path('blogs/',blogs),
+    path('blogdetails/<int:id>/',blog_details),
     path('course/',course),
-    path('coursedetails/<id>/',coursedetails),
+    path('coursedetails/<int:id>/',coursedetails),
     path('contact/',contact_page, name='contact-url'),
     
 ]

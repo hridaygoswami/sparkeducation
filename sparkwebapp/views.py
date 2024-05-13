@@ -4,13 +4,15 @@ from sparkwebapp.models import *
 from sparkwebadmin.models import * 
 from django.core.mail import send_mail
 from django.conf import settings
+from sparkwebadmin.models import Gallery
+from sparkwebadmin.models import Blogs
 # Create your views here.
 
 
 def index(request):
     queryset=slide.objects.all()
     queryset1=about.objects.first()
-    course=course1.objects.all()
+    course=course1.objects.all()    
     reviews=review.objects.all() 
     contact=contact3.objects.all()
     context={'slide':queryset,
@@ -25,6 +27,22 @@ def about1(request):
     queryset=about.objects.first()
     context={'about':queryset}
     return render(request,'about.html',context)
+
+def gallery(request):
+    # Retrieve all Gallery objects using the .objects attribute
+    galleries = Gallery.objects.all()
+    return render(request, 'gallery.html', {'galleries': galleries})
+
+def blogs(request):
+    queryset=Blogs.objects.all()
+    context={'blogs':queryset}
+    return render(request,'blogs.html',context)
+
+
+def blog_details(request, id):
+    blog = Blogs.objects.get(id=id)
+    return render(request, 'blog-details.html', {'blog': blog})
+    
 
 def course(request):
     course=course1.objects.all()

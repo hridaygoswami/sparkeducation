@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render,redirect
 from sparkwebadmin.models import * 
+from sparkwebapp.models import * 
 from django.contrib.auth.models import User
 from django.contrib.auth import login,authenticate
 
@@ -46,8 +47,43 @@ def main5(request):
     queryset=about.objects.all()
     context={'about':queryset}
     return render(request,'aboutus.html',context)
+def main10(request):
+    if request.method == 'POST':
+            data=request.POST
+           
+            img1=request.FILES.get('img1')
+            print(img1)
+            
+            Gallery.objects.create(
+                img1=img1
+                )
+    queryset=Gallery.objects.all()
+    context={'gallery':queryset}
+    return render(request,'galleryadmin.html',context)
 
+def main11(request):
+    if request.method == 'POST':
+            data=request.POST
+            heading=data.get('heading')
+            sub_content=data.get('sub_content')
+            content=data.get('content')
+            authorname=data.get('authorname')
+            img1=request.FILES.get('img1')
+            
+            
 
+            print(heading,content,img1)
+            
+            Blogs.objects.create(
+                heading=heading,
+                sub_content=sub_content,
+                content=content,
+                authorname=authorname,
+                img1=img1
+                )
+    queryset=Blogs.objects.all()
+    context={'blogs':queryset}
+    return render(request,'blogsadmin.html',context)
 def main9(request):
     if request.method == 'POST':
             data=request.POST
@@ -68,28 +104,11 @@ def main9(request):
     return render(request,'course1.html',context)
 
 def main4(request):
-    if request.method == 'POST':
-            data=request.POST
-            name=data.get('name')
-            email=data.get('email')
-            number=data.get('number')
-            category=data.get('category')
-            message=data.get('message')
-
-            print(name,email,number,category,message)
-            
-            contact3.objects.create(
-                name=name,
-                email=email,
-                number=number,
-                category=category,
-                message=message
-            )
-    queryset=contact3.objects.all()
+    queryset=Contact.objects.all()
     context={'contact3':queryset}
     return render(request,'contactus.html',context)
     
-    
+
 def main7(request):
     if request.method == 'POST':
             data=request.POST
@@ -125,15 +144,29 @@ def deleterow4(request,id):
   
 def deleterow3(request,id):
       print(id)
-      queryset=contact3.objects.get(id=id)
+      queryset=Contact.objects.get(id=id)
       queryset.delete()
       return redirect('/sparkwebadmin/contactus/')
+  
+
   
 def deleterow8(request,id):
       print(id)
       queryset=course1.objects.get(id=id)
       queryset.delete()
       return redirect('/sparkwebadmin/course1')
+
+def deleterow9(request,id):
+      print(id)
+      queryset=Gallery.objects.get(id=id)
+      queryset.delete()
+      return redirect('/sparkwebadmin/gallery')
+  
+def deleterow10(request,id):
+      print(id)
+      queryset=Blogs.objects.get(id=id)
+      queryset.delete()
+      return redirect('/sparkwebadmin/blogs')
   
 def slideup(request,id):
     print(id)
@@ -173,26 +206,26 @@ def testimonials(request,id):
     
     return render(request,'updatetestimonials.html',context)
 
-def contactup(request,id):
-    print(id)
-    queryset=contact3.objects.get(id=id)
-    if request.method == 'POST':
-        data=request.POST
-        name=data.get('name')
-        email=data.get('email')
-        number=data.get('number')
-        category=data.get('category')
-        message=data.get('message')
-        queryset.name=name
-        queryset.email=email
-        queryset.number=number
-        queryset.category=category
-        queryset.message=message   
-        queryset.save()
-        return redirect('../../contactus/')
-    context={'contact3':queryset}
+# def contactup(request,id):
+#     print(id)
+#     queryset=Contact.objects.get(id=id)
+#     if request.method == 'POST':
+#         data=request.POST
+#         name=data.get('name')
+#         email=data.get('email')
+#         number=data.get('number')
+#         category=data.get('category')
+#         message=data.get('message')
+#         queryset.name=name
+#         queryset.email=email
+#         queryset.number=number
+#         queryset.category=category
+#         queryset.message=message   
+#         queryset.save()
+#         return redirect('../../contactus/')
+#     context={'contact3':queryset}
     
-    return render(request,'update_contactus.html',context)
+#     return render(request,'update_contactus.html',context)
 
 def aboutup(request,id):
     print(id)

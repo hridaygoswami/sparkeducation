@@ -19,6 +19,22 @@ class about(models.Model):
 def _str_(self):
     return f"{self.heading,self.content,self.img1}"
 
+class Blogs(models.Model):
+    heading=models.CharField(max_length=50)
+    sub_content=models.CharField(max_length=150)
+    content=models.CharField(max_length=250)
+    authorname=models.CharField(max_length=20)
+    img1=models.ImageField(upload_to="images/",blank=True,null=True)
+   
+def _str_(self):
+    return f"{self.heading,self.sub_content,self.content,self.authorname,self.img1}"
+
+class Gallery(models.Model):
+    img1=models.ImageField(upload_to="images/",blank=True,null=True)
+    
+def _str_(self):
+    return f"{self.img1}"
+
 class course1(models.Model):
      img=models.ImageField(upload_to="images/",blank=True,null=True)
      name=models.CharField(max_length=50,null=True)
@@ -37,7 +53,7 @@ class contact3(models.Model):
     message=models.CharField(max_length=20)
 
 def _str_(self):
-    return f"{self.name,self.email,self.Number,self.category,self.message}"
+    return f"{self.name,self.email,self.number,self.category,self.message}"
 
 class review(models.Model):
     reviews=models.CharField(max_length=20)
